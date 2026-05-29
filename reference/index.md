@@ -4,6 +4,8 @@
 
 - [`confirm_overwrite()`](http://jpcollins.me/yaup/reference/confirm_overwrite.md)
   : Confirm before overwriting existing output file with changed data
+- [`extract_coords()`](http://jpcollins.me/yaup/reference/extract_coords.md)
+  : Extract centroid coordinates to columns
 - [`geocode_with_geocodeServer()`](http://jpcollins.me/yaup/reference/geocode_with_geocodeServer.md)
   : Geocode with ArcGIS GeocodeServer
 - [`geocode_with_geocodeServer_multiCandidate()`](http://jpcollins.me/yaup/reference/geocode_with_geocodeServer_multiCandidate.md)
