@@ -16,7 +16,8 @@ geocode_with_geocodeServer_multiCandidate(
 )
 }
 \arguments{
-\item{data}{Data frame-like object containing columns with addresses, city names, and stae names.}
+\item{data}{Data frame-like object containing columns with addresses, city
+names, and stae names.}
 
 \item{address_col}{Column name containing street addresses.}
 
@@ -24,9 +25,11 @@ geocode_with_geocodeServer_multiCandidate(
 
 \item{state_col}{Column name containing state names.}
 
-\item{geocode_url}{Full URL of ArcGIS GeocodeServer endpoint. Should end with \code{GeocodeServer/findAddressCandidates}.}
+\item{geocode_url}{Full URL of ArcGIS GeocodeServer endpoint. Should end
+with \code{GeocodeServer/findAddressCandidates}.}
 
-\item{id_col}{Column name containing unique identifiers. Defaults to \code{row_id}.}
+\item{id_col}{Column name containing unique identifiers. Defaults to
+\code{row_id}.}
 
 \item{crs}{CRS geocoder should output. Defaults to 4326 (WGS84).}
 
@@ -36,7 +39,8 @@ geocode_with_geocodeServer_multiCandidate(
 Tibble with geocode results.
 }
 \description{
-Passess address vector to a ArcGIS GeocodeServer endpoint. Returns multiple candidates for an input row when available.
+Passess address vector to a ArcGIS GeocodeServer endpoint. Returns multiple
+candidates for an input row when available.
 }
 \examples{
 \dontrun{

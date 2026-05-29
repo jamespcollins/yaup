@@ -9,12 +9,14 @@ geocode_with_geocodeServer(addresses, geocode_url, crs = 4326)
 \arguments{
 \item{addresses}{Vector of single-line address strings to geocode.}
 
-\item{geocode_url}{Full URL of ArcGIS GeocodeServer endpoint. Should end with \code{GeocodeServer/findAddressCandidates}.}
+\item{geocode_url}{Full URL of ArcGIS GeocodeServer endpoint.
+Should end with \code{GeocodeServer/findAddressCandidates}.}
 
 \item{crs}{CRS geocoder should output. Defaults to 4326 (WGS84).}
 }
 \value{
-Data frame with \code{input_address}, \code{candidate_address}, \code{lat}, \code{lon}, and \code{score} columns
+Data frame with \code{input_address}, \code{candidate_address}, \code{lat}, \code{lon},
+and \code{score} columns
 }
 \description{
 Passess address vector to a ArcGIS GeocodeServer endpoint.
