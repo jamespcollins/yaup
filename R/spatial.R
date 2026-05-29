@@ -307,3 +307,59 @@ geocode_with_geocodeServer_multiCandidate <- function(
 
   return(data)
 }
+
+#' Distance between coordinates
+#'
+#' Initially from 04a_911_compare.R
+#' @param data sf data frame like object.
+#' @param a.lon_x Column name of first coordinate longitude.
+#' @param a.lat_y Column name of first coordinate latitude.
+#' @param b.lon_x Column name of second coordinate longitude.
+#' @param b.lat_y Column name of second coordinate latitude.
+#' @param dist_col Column name in which to store calculated distance.
+#' @param drop_units Column name of second coordinate latitude.
+#' @param target_crs CRS to use for calculation. Defaults to 4326 (WGS84).
+#' @return Input data with `dist_col` appended.
+#' @export
+
+distance_between_XY <- function(
+  data,
+  a.lon_x,
+  a.lat_y,
+  b.lon_x,
+  b.lat_y,
+  dist_col = 'dist',
+  drop_units = TRUE,
+  target_crs = 4326
+) {
+  stopifnot(!dist_col %in% names(data))
+
+  data <- data %>%
+    dplyr::mutate(
+      {{ dist_col }} := sf::st_distance(
+        sf::st_set_crs(
+          sf::st_sfc(st_point(c(
+            as.double({{ a.lon_x }}),
+            as.double({{ a.lat_y }})
+          ))),
+          target_crs
+        ),
+        sf::st_set_crs(
+          sf::st_sfc(st_point(c(
+            as.double({{ b.lon_x }}),
+            as.double({{ b.lat_y }})
+          ))),
+          target_crs
+        )
+      )
+    )
+
+  if (drop_units) {
+    data <- data %>%
+      dplyr::mutate(
+        {{ dist_col }} := as.double(!!rlang::sym(dist_col))
+      )
+  }
+
+  return(data)
+}

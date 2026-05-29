@@ -13,6 +13,7 @@ reference:
   contents: 
   - xy_to_point
   - extract_coords
+  - distance_between_XY
   - geocode_with_geocodeServer
   - geocode_with_geocodeServer_multiCandidate
 - title: "Logging"
