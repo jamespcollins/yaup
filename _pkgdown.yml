@@ -2,3 +2,25 @@ url: http://jpcollins.me/yaup/
 template:
   bootstrap: 5
 
+reference:
+- title: "Reading and Writing Data"
+  desc: "Functions for reading and writing data."
+  contents:
+  - confirm_overwrite
+  - read_csv_from_intermediate
+- title: "Spatial Data Manipulation"
+  desc: "Functions for manipulating spatial data."
+  contents: 
+  - xy_to_point
+  - extract_coords
+  - geocode_with_geocodeServer
+  - geocode_with_geocodeServer_multiCandidate
+- title: "Logging"
+  desc: "Functions for reading and writing data."
+  contents:
+  - matches("log")
+- title: "HPC Cluster Tools"
+  desc: "Functions for working on high-performance computing clusters."
+  contents:
+  - matches("batch")
+
