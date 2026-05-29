@@ -1,15 +1,10 @@
 #' Open a log file
 #'
-#' Description
-#' @param name description
-#' @return returns
-#' @importFrom dependencies
+#' Opens a log file connection and creates the file if it does not exist.
+#' @param name Name of log file to open or create.
+#' @return `log` object to pass to `write_log()`.
 #' @export
-#' @keywords
-#' @examples
-#' \dontrun{
-#' # Example title
-#' }
+#' @keywords log
 
 open_log = function(name) {
   LOG_DIR = Sys.getenv('LOG_DIR')
@@ -64,16 +59,13 @@ open_log = function(name) {
 
 #' Write to a log file
 #'
-#' Description
-#' @param name description
-#' @return returns
-#' @importFrom dependencies
+#' Writes a timestamped message to a log file.
+#' @param message Message to log.
+#' @param log_obj `log` object created with `open_log()`.
+#' @param type Log message type. Valid values are `INFO`, `WARN`, and `ERROR`.
+#' @return Echos log message to console.
 #' @export
-#' @keywords
-#' @examples
-#' \dontrun{
-#' # Example title
-#' }
+#' @keywords log
 
 write_log = function(message, log_obj, type = 'INFO') {
   stopifnot(inherits(log_obj, 'log'))

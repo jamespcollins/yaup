@@ -7,16 +7,16 @@
 write_log(message, log_obj, type = "INFO")
 }
 \arguments{
-\item{name}{description}
+\item{message}{Message to log.}
+
+\item{log_obj}{\code{log} object created with \code{open_log()}.}
+
+\item{type}{Log message type. Valid values are \code{INFO}, \code{WARN}, and \code{ERROR}.}
 }
 \value{
-returns
+Echos log message to console.
 }
 \description{
-Description
+Writes a timestamped message to a log file.
 }
-\examples{
-\dontrun{
-# Example title
-}
-}
+\keyword{log}

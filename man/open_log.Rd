@@ -7,16 +7,12 @@
 open_log(name)
 }
 \arguments{
-\item{name}{description}
+\item{name}{Name of log file to open or create.}
 }
 \value{
-returns
+\code{log} object to pass to \code{write_log()}.
 }
 \description{
-Description
+Opens a log file connection and creates the file if it does not exist.
 }
-\examples{
-\dontrun{
-# Example title
-}
-}
+\keyword{log}
