@@ -13,7 +13,7 @@
 #' @param use_here Use here::here() to reference to project.
 #' @return returns
 #' @export
-#' @keywords
+#' @keywords write
 #' @examples
 #' \dontrun{
 #' # Example title
