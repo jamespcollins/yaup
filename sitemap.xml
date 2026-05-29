@@ -11,8 +11,10 @@
 <url><loc>http://jpcollins.me/yaup/reference/get_intermediate_rds_store.html</loc></url>
 <url><loc>http://jpcollins.me/yaup/reference/index.html</loc></url>
 <url><loc>http://jpcollins.me/yaup/reference/is_batch.html</loc></url>
+<url><loc>http://jpcollins.me/yaup/reference/open_log.html</loc></url>
 <url><loc>http://jpcollins.me/yaup/reference/read_csv_from_intermediate.html</loc></url>
 <url><loc>http://jpcollins.me/yaup/reference/require_batch.html</loc></url>
+<url><loc>http://jpcollins.me/yaup/reference/write_log.html</loc></url>
 <url><loc>http://jpcollins.me/yaup/reference/xy_to_point.html</loc></url>
 <url><loc>http://jpcollins.me/yaup/reference/yaup-package.html</loc></url>
 </urlset>
