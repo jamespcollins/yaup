@@ -25,14 +25,54 @@ xy_to_point <- function(data, lon, lat, target_crs = NULL) {
     sf::st_set_crs(target_crs)
 }
 
+#' Extract centroid coordinates to columns
+#'
+#' Adds centroid lat and long coordinates as new columns.
+#' @param data sf data frame like object.
+#' @param lat_to Latitude column name, with quotes.
+#' @param lon_to Longitude column name, with quotes.
+#' @param centroid Convert the data to centroids first. Defaults to FALSE.
+#' @param drop_geometry Drop the sf geometry. Defaults to FALSE.
+#' @return The input object with new lat and lon columns.
+#' @export
+
+extract_coords = function(
+  data,
+  lat_to = 'lat',
+  lon_to = 'lon',
+  centroid = FALSE,
+  drop_geometry = FALSE
+) {
+  stopifnot(inherits(data, 'sf'))
+  stopifnot(!lat_to %in% names(data))
+  stopifnot(!lon_to %in% names(data))
+
+  if (centroid) {
+    data = sf::st_centroid(data)
+  }
+
+  res = data %>%
+    dplyr::mutate(
+      {{ lat_to }} := sf::st_coordinates(.)[, 2],
+      {{ lon_to }} := sf::st_coordinates(.)[, 1]
+    )
+
+  if (drop_geometry) {
+    res |> sf::st_drop_geometry()
+  } else {
+    res
+  }
+}
 
 #' Geocode with ArcGIS GeocodeServer
 #'
 #' Passess address vector to a ArcGIS GeocodeServer endpoint.
 #' @param addresses Vector of single-line address strings to geocode.
-#' @param geocode_url Full URL of ArcGIS GeocodeServer endpoint. Should end with `GeocodeServer/findAddressCandidates`.
+#' @param geocode_url Full URL of ArcGIS GeocodeServer endpoint.
+#' Should end with `GeocodeServer/findAddressCandidates`.
 #' @param crs CRS geocoder should output. Defaults to 4326 (WGS84).
-#' @return Data frame with `input_address`, `candidate_address`, `lat`, `lon`, and `score` columns
+#' @return Data frame with `input_address`, `candidate_address`, `lat`, `lon`,
+#' and `score` columns
 #' @export
 #' @keywords geocode
 #' @examples
@@ -111,13 +151,17 @@ geocode_with_geocodeServer <- function(
 
 #' Geocode with ArcGIS GeocodeServer and return multiple candidate
 #'
-#' Passess address vector to a ArcGIS GeocodeServer endpoint. Returns multiple candidates for an input row when available.
-#' @param data Data frame-like object containing columns with addresses, city names, and stae names.
+#' Passess address vector to a ArcGIS GeocodeServer endpoint. Returns multiple
+#' candidates for an input row when available.
+#' @param data Data frame-like object containing columns with addresses, city
+#' names, and stae names.
 #' @param address_col Column name containing street addresses.
 #' @param city_col Column name containing city names.
 #' @param state_col Column name containing state names.
-#' @param geocode_url Full URL of ArcGIS GeocodeServer endpoint. Should end with `GeocodeServer/findAddressCandidates`.
-#' @param id_col Column name containing unique identifiers. Defaults to `row_id`.
+#' @param geocode_url Full URL of ArcGIS GeocodeServer endpoint. Should end
+#' with `GeocodeServer/findAddressCandidates`.
+#' @param id_col Column name containing unique identifiers. Defaults to
+#' `row_id`.
 #' @param crs CRS geocoder should output. Defaults to 4326 (WGS84).
 #' @param prefix Prefix for geocoder result columns. Defaults to `gc.`.
 #' @return Tibble with geocode results.
