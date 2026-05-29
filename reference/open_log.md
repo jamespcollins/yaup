@@ -1,6 +1,6 @@
 # Open a log file
 
-Description
+Opens a log file connection and creates the file if it does not exist.
 
 ## Usage
 
@@ -12,16 +12,9 @@ open_log(name)
 
 - name:
 
-  description
+  Name of log file to open or create.
 
 ## Value
 
-returns
-
-## Examples
-
-``` r
-if (FALSE) { # \dontrun{
-# Example title
-} # }
-```
+`log` object to pass to
+[`write_log()`](http://jpcollins.me/yaup/reference/write_log.md).

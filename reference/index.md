@@ -17,6 +17,8 @@ Functions for manipulating spatial data.
   Non-destructive X-Y coordinates to sf point
 - [`extract_coords()`](http://jpcollins.me/yaup/reference/extract_coords.md)
   : Extract centroid coordinates to columns
+- [`distance_between_XY()`](http://jpcollins.me/yaup/reference/distance_between_XY.md)
+  : Distance between coordinates
 - [`geocode_with_geocodeServer()`](http://jpcollins.me/yaup/reference/geocode_with_geocodeServer.md)
   : Geocode with ArcGIS GeocodeServer
 - [`geocode_with_geocodeServer_multiCandidate()`](http://jpcollins.me/yaup/reference/geocode_with_geocodeServer_multiCandidate.md)
