@@ -1,3 +1,16 @@
+#' Open a log file
+#'
+#' Description
+#' @param name description
+#' @return returns
+#' @importFrom dependencies
+#' @export
+#' @keywords
+#' @examples
+#' \dontrun{
+#' # Example title
+#' }
+
 open_log = function(name) {
   LOG_DIR = Sys.getenv('LOG_DIR')
 
@@ -48,6 +61,19 @@ open_log = function(name) {
 
   log_obj
 }
+
+#' Write to a log file
+#'
+#' Description
+#' @param name description
+#' @return returns
+#' @importFrom dependencies
+#' @export
+#' @keywords
+#' @examples
+#' \dontrun{
+#' # Example title
+#' }
 
 write_log = function(message, log_obj, type = 'INFO') {
   stopifnot(inherits(log_obj, 'log'))

@@ -225,6 +225,7 @@ read_csv_from_intermediate <- function(path, rds_dir = '.csv_overwrites') {
 #' Description
 #' @param target Target file path. Should end in .rds or .csv.
 #' @param rds_dir The directory to store RDS representations of CSVs.
+#' @keywords internal
 #' @return returns
 
 get_intermediate_rds_store <- function(target, rds_dir) {
