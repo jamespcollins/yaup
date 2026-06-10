@@ -8,6 +8,10 @@ reference:
   contents:
   - confirm_overwrite
   - read_csv_from_intermediate
+- title: "Dates"
+  desc: "Functions for working with dates and times."
+  contents:
+  - matches("date_")
 - title: "Spatial Data Manipulation"
   desc: "Functions for manipulating spatial data."
   contents: 
