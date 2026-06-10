@@ -9,6 +9,13 @@ Functions for reading and writing data.
 - [`read_csv_from_intermediate()`](http://jpcollins.me/yaup/reference/read_csv_from_intermediate.md)
   : Read a CSV path but from intermediate RDS store.
 
+## Dates
+
+Functions for working with dates and times.
+
+- [`date_replicate_range()`](http://jpcollins.me/yaup/reference/date_replicate_range.md)
+  : Replicate rows across date range
+
 ## Spatial Data Manipulation
 
 Functions for manipulating spatial data.
